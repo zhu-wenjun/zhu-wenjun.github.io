@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Wenjun.Zhu">
+  
+  
+  
+  
+  <link rel="next" href="https://zhu-wenjun.github.io/2018/docker/" />
+  <link rel="canonical" href="https://zhu-wenjun.github.io/2018/scala/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Scala笔记 | Uncertainty days
+       
+  </title>
+  <meta name="title" content="Scala笔记 | Uncertainty days">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://zhu-wenjun.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Scala笔记",
+    "headline" : "Scala笔记",
+    "description" : "Scala是SCAlable Language（可扩展语言）的缩写，由Martin Odersky教授和他的EPFL团队于2003年创建。 Scala用来为Java虚拟机(JVM)平台上的函数式编程和面向对象编程提供一个高性能的开发环境。
+1. Scala环境搭建 1.1. 安装JDK 安装JAVA SE标准环境并检查版本
+   java -version java version &#34;1.8.0_191&#34; Java(TM) SE Runtime Environment (build 1.8.0_191-b12) Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode)  1.2. 安装Scala OSX 安装Scala
+   brew install scala ==&gt; Downloading https://downloads.lightbend.com/scala/2.12.7/scala-2.12.7.tgz ######################################################################## 100.0% ==&gt; Caveats To use with IntelliJ, set the Scala home to: /usr/local/opt/scala/idea ==&gt; Summary 🍺 /usr/local/Cellar/scala/2.12.7: 42 files, 20.8MB, built in 20 minutes 36 seconds 安装完后在终端输入scala命令，看到如下Welcome to Scala&hellip;和scala&gt;提示说明你已经在Scala REPL（READ-Eval-Print-Loop）交互解释器环境",
+    "inLanguage" : "en-us",
+    "author" : "Wenjun.Zhu",
+    "creator" : "Wenjun.Zhu",
+    "publisher": "Wenjun.Zhu",
+    "accountablePerson" : "Wenjun.Zhu",
+    "copyrightHolder" : "Wenjun.Zhu",
+    "copyrightYear" : "2018",
+    "datePublished": "2018-11-18 22:45:00 &#43;0800 &#43;0800",
+    "dateModified" : "2018-11-18 22:45:00 &#43;0800 &#43;0800",
+    "url" : "https://zhu-wenjun.github.io/2018/scala/",
+    "wordCount" : "1085",
+    "keywords" : [  "Uncertainty days"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://zhu-wenjun.github.io">Uncertainty days</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://zhu-wenjun.github.io">Uncertainty days</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Scala笔记</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://zhu-wenjun.github.io" rel="author">Wenjun.Zhu</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2018-11-18 itemprop="datePublished">November 18, 2018</time>
+                </span>
+                in
+                
+
+                |
+                <a href="#gitalk-container" itemprop="discussionUrl">
+                    <span class="post-comments-count gitalk-comment-count" itemprop="commentCount"></span>
+                </a>
+                
+        </div>
+    </header>
+
+        
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-scala">1. Scala环境搭建</a>
+      <ul>
+        <li><a href="#11-jdk">1.1. 安装JDK</a></li>
+        <li><a href="#12-scala">1.2. 安装Scala</a></li>
+        <li><a href="#13-hello-world">1.3 Hello, World</a></li>
+        <li><a href="#14-">1.4 算数运算</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-scala-">2. Scala 字面量、值、变量和类型</a>
+      <ul>
+        <li><a href="#21-literal">2.1 字面量(literal)</a></li>
+        <li><a href="#22-value">2.2 值(value)</a></li>
+        <li><a href="#23-variable">2.3 变量(variable)</a></li>
+        <li><a href="#24-">2.4 类型</a></li>
+        <li><a href="#25-">2.5 命名</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>Scala是SCAlable Language（可扩展语言）的缩写，由Martin Odersky教授和他的EPFL团队于2003年创建。
+Scala用来为Java虚拟机(JVM)平台上的函数式编程和面向对象编程提供一个高性能的开发环境。</p>
+<h2 id="1-scala">1. Scala环境搭建</h2>
+<h3 id="11-jdk">1.1. 安装JDK</h3>
+<p>安装JAVA SE标准环境并检查版本</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">   java -version
+java version <span style="color:#e6db74">&#34;1.8.0_191&#34;</span>
+Java<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> SE Runtime Environment <span style="color:#f92672">(</span>build 1.8.0_191-b12<span style="color:#f92672">)</span>
+Java HotSpot<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> 64-Bit Server VM <span style="color:#f92672">(</span>build 25.191-b12, mixed mode<span style="color:#f92672">)</span>
+</code></pre></div><hr>
+<h3 id="12-scala">1.2. 安装Scala</h3>
+<p>OSX 安装Scala</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">   brew install scala
+<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Downloading https://downloads.lightbend.com/scala/2.12.7/scala-2.12.7.tgz
+<span style="color:#75715e">######################################################################## 100.0%</span>
+<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Caveats
+To use with IntelliJ, set the Scala home to:
+  /usr/local/opt/scala/idea
+<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Summary
+🍺  /usr/local/Cellar/scala/2.12.7: <span style="color:#ae81ff">42</span> files, 20.8MB, built in <span style="color:#ae81ff">20</span> minutes <span style="color:#ae81ff">36</span> seconds
+</code></pre></div><p>安装完后在终端输入scala命令，看到如下Welcome to Scala&hellip;和scala&gt;提示说明你已经在Scala REPL（READ-Eval-Print-Loop）<strong>交互解释器环境</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">   scala
+Welcome to Scala 2.12.7 <span style="color:#f92672">(</span>Java HotSpot<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> 64-Bit Server VM, Java 1.8.0_191<span style="color:#f92672">)</span>.
+Type in expressions <span style="color:#66d9ef">for</span> evaluation. Or try :help.
+
+scala&gt;
+</code></pre></div><p>在Scala的REPL中输入:help会显示帮助系统</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; :help
+All commands can be abbreviated, e.g., :he instead of :help.
+:completions &lt;string&gt;    output completions <span style="color:#66d9ef">for</span> the given string
+:edit &lt;id&gt;|&lt;line&gt;        edit history
+:help <span style="color:#f92672">[</span>command<span style="color:#f92672">]</span>          print this summary or command-specific help
+:history <span style="color:#f92672">[</span>num<span style="color:#f92672">]</span>           show the history <span style="color:#f92672">(</span>optional num is commands to show<span style="color:#f92672">)</span>
+:h? &lt;string&gt;             search the history
+:imports <span style="color:#f92672">[</span>name name ...<span style="color:#f92672">]</span> show import history, identifying sources of names
+:implicits <span style="color:#f92672">[</span>-v<span style="color:#f92672">]</span>          show the implicits in scope
+:javap &lt;path|class&gt;      disassemble a file or class name
+:line &lt;id&gt;|&lt;line&gt;        place line<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> at the end of history
+:load &lt;path&gt;             interpret lines in a file
+:paste <span style="color:#f92672">[</span>-raw<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>path<span style="color:#f92672">]</span>     enter paste mode or paste a file
+:power                   enable power user mode
+:quit                    exit the interpreter
+:replay <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>        reset the repl and replay all previous commands
+:require &lt;path&gt;          add a jar to the classpath
+:reset <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>         reset the repl to its initial state, forgetting all session entries
+:save &lt;path&gt;             save replayable session to a file
+:sh &lt;command line&gt;       run a shell command <span style="color:#f92672">(</span>result is implicitly <span style="color:#f92672">=</span>&gt; List<span style="color:#f92672">[</span>String<span style="color:#f92672">]</span><span style="color:#f92672">)</span>
+:settings &lt;options&gt;      update compiler options, <span style="color:#66d9ef">if</span> possible; see reset
+:silent                  disable/enable automatic printing of results
+:type <span style="color:#f92672">[</span>-v<span style="color:#f92672">]</span> &lt;expr&gt;        display the type of an expression without evaluating it
+:kind <span style="color:#f92672">[</span>-v<span style="color:#f92672">]</span> &lt;type&gt;        display the kind of a type. see also :help kind
+:warnings                show the suppressed warnings from the most recent line which had any
+
+scala&gt;
+</code></pre></div><hr>
+<h3 id="13-hello-world">1.3 Hello, World</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello, World&#34;</span><span style="color:#f92672">)</span>
+Hello, World
+
+scala&gt;
+</code></pre></div><p>在scala&gt; 中输入println(&ldquo;Hello, World&rdquo;)并回车时:
+<!-- raw HTML omitted -->
+REPL先读(<strong>R</strong>) println(&ldquo;Hello, World&rdquo;)的输入内容
+<!-- raw HTML omitted -->
+  然后计算(<strong>E</strong>) println(&ldquo;Hello, World&rdquo;)函数的返回结果
+<!-- raw HTML omitted -->
+  之后显示(<strong>P</strong>) 到stdout标准输出(屏幕)上
+<!-- raw HTML omitted -->
+  最后循环(<strong>L</strong>) 到scala&gt;提示符</p>
+<hr>
+<h3 id="14-">1.4 算数运算</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; <span style="color:#ae81ff">9</span> * <span style="color:#ae81ff">9</span>
+res4: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">81</span>
+
+scala&gt; println<span style="color:#f92672">(</span>res4<span style="color:#f92672">)</span>
+<span style="color:#ae81ff">81</span>
+scala&gt;
+</code></pre></div><p>在REPL 中输入9 * 9时， REPL显示结果为81，但这个81被赋给一个Int（整型）的变量res4,之后用println打印(res4)，可以看到res4变量的值为81。</p>
+<hr>
+<h2 id="2-scala-">2. Scala 字面量、值、变量和类型</h2>
+<h3 id="21-literal">2.1 字面量(literal)</h3>
+<p>字面量或字面数据是直接出现在源代码中的数据，如数字5、字母'A'和文本&quot;Hello, world&rdquo;</p>
+<hr>
+<h3 id="22-value">2.2 值(value)</h3>
+<p>值是一个不可变的、有类型的存储单元。可以在定义值时为它指定数据，不过<strong>不允许</strong>重新赋值<!-- raw HTML omitted --></p>
+<blockquote>
+<p>定义值: val &lt;identifier&gt;[: &lt;type&gt;] = &lt;data&gt;</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; val x:Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+x: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+
+scala&gt; x <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+&lt;console&gt;:12: error: reassignment to val
+       x <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+         ^
+
+scala&gt;
+</code></pre></div><p>根据字面量(literal)赋值自动推导<strong>值</strong>的类型，即可省略 [: &lt;type&gt;]</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; val a <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+a: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+
+scala&gt; val b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;desk&#34;</span>
+b: String <span style="color:#f92672">=</span> desk
+
+scala&gt; val c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;$&#39;</span>
+c: Char <span style="color:#f92672">=</span> $
+
+scala&gt;
+</code></pre></div><p><strong>注意</strong>⚠️   :如果将val显示的声明某一类型时(比如Int)，其赋值也须是相同的类型(比如Int)，否则会出现类型不匹配</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; val x: Int <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;floor&#34;</span>
+&lt;console&gt;:11: error: type mismatch;
+ found   : String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;floor&#34;</span><span style="color:#f92672">)</span>
+ required: Int
+       val x: Int <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;floor&#34;</span>
+                    ^
+
+scala&gt;
+</code></pre></div><hr>
+<h3 id="23-variable">2.3 变量(variable)</h3>
+<p>变量是一个可变的、有类型的存储单元。可以在定义变量时为它指定数据，而且可以在任何时间重新赋值<!-- raw HTML omitted --></p>
+<blockquote>
+<p>定义变量:var &lt;identifier&gt;[: &lt;type&gt;] = &lt;data&gt;</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; var x:Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+x: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+
+scala&gt; x <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+x: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+
+scala&gt;
+</code></pre></div><p>根据字面量(Literal)赋值推导变量类型，即可省略[: &lt;type&gt;]</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; var a <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+a: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+
+scala&gt; var b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;table&#34;</span>
+b: String <span style="color:#f92672">=</span> table
+
+scala&gt; var c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;@&#39;</span>
+c: Char <span style="color:#f92672">=</span> @
+
+scala&gt;
+</code></pre></div><p><strong>注意</strong>⚠️   :如果将var显示的声明某一类型时(比如Int)，其赋值也须是相同的类型(比如Int)，否则会出现类型不匹配</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; var x: Int <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;roof&#34;</span>
+&lt;console&gt;:11: error: type mismatch;
+ found   : String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;roof&#34;</span><span style="color:#f92672">)</span>
+ required: Int
+       var x: Int <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;roof&#34;</span>
+                    ^
+
+scala&gt;
+</code></pre></div><p><strong>但是</strong>, 一个Double类型的变量可以被赋值为一个Int值，因为Int数可以自动转换为Double数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; var y: Double <span style="color:#f92672">=</span> 3.1415926
+y: Double <span style="color:#f92672">=</span> 3.1415926
+
+scala&gt; y <span style="color:#f92672">=</span> <span style="color:#ae81ff">1234</span>
+y: Double <span style="color:#f92672">=</span> 1234.0
+
+scala&gt;
+</code></pre></div><hr>
+<h3 id="24-">2.4 类型</h3>
+<p>Scala包括<strong>数值类型</strong>（比如Int和Double）和<strong>非数值类型</strong>(比如String),可以用来定义<strong>值</strong>和<strong>变量</strong>.<!-- raw HTML omitted -->
+这些核心类型是所有其他类型的基石，这包括<strong>对象</strong>和<strong>集合</strong>. <!-- raw HTML omitted -->
+<strong>集合</strong>本身也是<strong>对象</strong>，也包括可以处理其数据的<strong>方法</strong>和<strong>操作符</strong></p>
+<h4 id="241-">2.4.1 数值数据类型</h4>
+<table>
+<thead>
+<tr>
+<th>类型名</th>
+<th>描述</th>
+<th>大小</th>
+<th>最小值</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Byte</td>
+<td>有符号整数</td>
+<td>1字节</td>
+<td>-127</td>
+<td>128</td>
+</tr>
+<tr>
+<td>Short</td>
+<td>有符号整数</td>
+<td>2字节</td>
+<td>-32768</td>
+<td>32767</td>
+</tr>
+<tr>
+<td>Int</td>
+<td>有符号整数</td>
+<td>4字节</td>
+<td>-2^31</td>
+<td>2^31 - 1</td>
+</tr>
+<tr>
+<td>Long</td>
+<td>有符号整数</td>
+<td>8字节</td>
+<td>-2^63</td>
+<td>2^63 - 1</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>有符号浮点数</td>
+<td>4字节</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>有符号浮点数</td>
+<td>8字节</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Scala支持自动将低等级类型转换为高等级类型，以上数值数据类型等级从低到高为Byte &mdash;&gt; Double</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; val b: Byte <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+b: Byte <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+
+scala&gt; val f: Float <span style="color:#f92672">=</span> b
+f: Float <span style="color:#f92672">=</span> 10.0
+
+scala&gt; val d: Double <span style="color:#f92672">=</span> b
+d: Double <span style="color:#f92672">=</span> 10.0
+
+scala&gt;
+
+</code></pre></div><p>以上数值数据类型从低等级到高等级为Byte &mdash;&gt; Double</p>
+<p>从高等级向低等级转换数据时会出现type mismatch，需要用toType方法完成类型间的转换，所有的数值类型都有toType的方法。
+toType从高等级向低等级转换时有可能会丢失数据</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; val a1: Long <span style="color:#f92672">=</span> <span style="color:#ae81ff">60</span>
+a1: Long <span style="color:#f92672">=</span> <span style="color:#ae81ff">60</span>
+
+scala&gt; val a2: Int <span style="color:#f92672">=</span> a1
+&lt;console&gt;:12: error: type mismatch;
+ found   : Long
+ required: Int
+       val a2: Int <span style="color:#f92672">=</span> a1
+                     ^
+
+scala&gt; val a2: Int <span style="color:#f92672">=</span> a1.toInt
+a2: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">60</span>
+
+scala&gt; val a3: Long <span style="color:#f92672">=</span> a2
+a3: Long <span style="color:#f92672">=</span> <span style="color:#ae81ff">60</span>
+
+scala&gt; val a4: Double <span style="color:#f92672">=</span> a2
+a4: Double <span style="color:#f92672">=</span> 60.0
+</code></pre></div><p>根据数值字面量类型来指定值或变量的类型</p>
+<table>
+<thead>
+<tr>
+<th>字面量</th>
+<th>类型</th>
+<th>描述</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Int</td>
+<td>数字前后无尾缀的字面量为Int型</td>
+<td>scala&gt; var a = 5<!-- raw HTML omitted --> a: Int = 5</td>
+</tr>
+<tr>
+<td>0xff</td>
+<td>Int</td>
+<td>数字前缀有0x是16进制的字面量为Int型</td>
+<td>scala&gt; var b = 0xff<!-- raw HTML omitted --> b: Int = 255</td>
+</tr>
+<tr>
+<td>5l</td>
+<td>Long</td>
+<td>数字尾缀有l的字面量为Long型</td>
+<td>scala&gt; var c = 5l<!-- raw HTML omitted --> c: Long = 5</td>
+</tr>
+<tr>
+<td>5d</td>
+<td>Double</td>
+<td>小数后面无尾缀的字面量为Double型</td>
+<td>scala&gt; var d = 5d<!-- raw HTML omitted --> d: Double = 5.0</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>Double</td>
+<td>小数后面无尾缀的字面量为Double型</td>
+<td>scala&gt; var e = 5.0<!-- raw HTML omitted --> e: Double = 5.0</td>
+</tr>
+<tr>
+<td>5.0f</td>
+<td>Float</td>
+<td>小数后面有f的字面量为Float型</td>
+<td>scala&gt; var f = 5.0f<!-- raw HTML omitted --> f: Float = 5.0</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="242-">2.4.2 字符串</h4>
+<hr>
+<h3 id="25-">2.5 命名</h3>
+<p>Scala中的名字命名可以使用字母、数字和一些特殊的操作符（operator）字符，比如 *, :或者+等。
+<strong>注意</strong>⚠️ ：特殊操作符不包括点号. 和中括号[]
+Scala合法标识符命名规则:</p>
+<h4 id="251-aa1">2.5.1 a[a/1]</h4>
+<p>一个字母后面跟任意个字母或数字</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; val a <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+a: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+
+scala&gt; val ab <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>
+ab: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>
+
+scala&gt; val a1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>
+a1: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>
+
+scala&gt; val a1b <span style="color:#f92672">=</span> <span style="color:#ae81ff">13</span>
+a1b: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">13</span>
+
+scala&gt; val ab1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>
+ab1: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>
+
+scala&gt;
+</code></pre></div><h4 id="252-aa1-a1">2.5.2 a[a/1]_[a/1/*]</h4>
+<p>一个字母后面跟任意个字母或数字, 然后是一个下划线(_)，后面是任意个字母、数字或操作符字符</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; val a_b <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
+a_b: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
+
+scala&gt; val a_1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>
+a_1: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>
+
+scala&gt; val a_* <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>
+a_*: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>
+
+scala&gt; val a* <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>
+&lt;console&gt;:1: error: illegal start of simple pattern
+       val a* <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>
+              ^
+
+scala&gt;
+</code></pre></div><h4 id="253-">2.5.3 *[*]</h4>
+<p>一个或多个操作符字符</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; val * <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
+*: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
+
+scala&gt; val ** <span style="color:#f92672">=</span> <span style="color:#ae81ff">31</span>
+**: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">31</span>
+
+scala&gt; val *: <span style="color:#f92672">=</span> <span style="color:#ae81ff">32</span>
+*:: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">32</span>
+
+scala&gt; val *:+ <span style="color:#f92672">=</span> <span style="color:#ae81ff">33</span>
+*:+: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">33</span>
+
+scala&gt;
+</code></pre></div><h4 id="254-a">2.5.4 `a*`</h4>
+<p>一个或多个除反引号``之外的任意字符，所有这些字符需要包围在一对反引号中, 这些字符可以是Scala的保留字，比如true, while, = 和var
+a<em>的命名违反规则2.5.2， 使用反引号``包围a</em>使其命名合法化</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; val a* <span style="color:#f92672">=</span> <span style="color:#ae81ff">40</span>
+&lt;console&gt;:1: error: illegal start of simple pattern
+       val a* <span style="color:#f92672">=</span> <span style="color:#ae81ff">40</span>
+              ^
+
+scala&gt; val <span style="color:#e6db74">`</span>a*<span style="color:#e6db74">`</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">40</span>
+a*: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">40</span>
+
+</code></pre></div><p>Scala命名规则里面不包含点号.,  使用反引号`` 使命名合法化</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; val . <span style="color:#f92672">=</span> <span style="color:#ae81ff">41</span>
+&lt;console&gt;:1: error: illegal start of simple pattern
+       val . <span style="color:#f92672">=</span> <span style="color:#ae81ff">41</span>
+           ^
+
+scala&gt; val <span style="color:#e6db74">`</span>.<span style="color:#e6db74">`</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">41</span>
+.: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">41</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; val a.. <span style="color:#f92672">=</span> <span style="color:#ae81ff">42</span>
+&lt;console&gt;:1: error: identifier expected but <span style="color:#e6db74">&#39;.&#39;</span> found.
+       val a.. <span style="color:#f92672">=</span> <span style="color:#ae81ff">42</span>
+             ^
+&lt;console&gt;:1: error: identifier expected but <span style="color:#e6db74">&#39;=&#39;</span> found.
+       val a.. <span style="color:#f92672">=</span> <span style="color:#ae81ff">42</span>
+               ^
+
+scala&gt; val <span style="color:#e6db74">`</span>a..<span style="color:#e6db74">`</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">42</span>
+a..: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">42</span>
+
+scala&gt;
+</code></pre></div><p>Scala命名规则里面不包中括号[],  使用反引号`` 使命名合法化</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; val <span style="color:#f92672">[</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">43</span>
+&lt;console&gt;:1: error: illegal start of simple pattern
+       val <span style="color:#f92672">[</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">43</span>
+           ^
+
+scala&gt; val <span style="color:#e6db74">`</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#e6db74">`</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">43</span>
+<span style="color:#f92672">[</span><span style="color:#f92672">]</span>: Int <span style="color:#f92672">=</span> <span style="color:#ae81ff">43</span>
+
+scala&gt;
+</code></pre></div><p>Scala命名规则里面不包含数字开头的规则，所以这种即使是加上反引号``也是不合法的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scala&gt; var <span style="color:#e6db74">`</span>1abc<span style="color:#e6db74">`</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">44</span>
+&lt;console&gt;:5: error: Invalid literal number
+         lazy val $result <span style="color:#f92672">=</span> 1abc
+                                                 ^
+&lt;console&gt;:9: error: Invalid literal number
+       <span style="color:#e6db74">&#34;&#34;</span>  + <span style="color:#e6db74">&#34;\u001B[1m\u001B[34m1abc\u001B[0m: \u001B[1m\u001B[32mInt\u001B[0m = &#34;</span> + _root_.scala.runtime.ScalaRunTime.replStringOf<span style="color:#f92672">(</span>1abc, 1000<span style="color:#f92672">)</span>
+</code></pre></div><p>Scala采用驼峰式命名法,值和变量名首字母小写，其余后面单词的首字母大写。类型和类的首字母和后面的单词首字母均采用大写的方式，以便和值和变量做区分。</p>
+<hr>
+<blockquote>
+<p>笔记参考： Scala学习手册</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Wenjun.Zhu </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://zhu-wenjun.github.io/2018/scala/>https://zhu-wenjun.github.io/2018/scala/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://zhu-wenjun.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+         
+        
+        <a href="https://zhu-wenjun.github.io/2018/docker/" class="next" rel="next" title="Docker笔记">Docker笔记&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+
+    </div>
+</article>
+          
+<div class="comments-container"></div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://zhu-wenjun.github.io">Wenjun.Zhu</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+     </div>
+  </body>
+</html>

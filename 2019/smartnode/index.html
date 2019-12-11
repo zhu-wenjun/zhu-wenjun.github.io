@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Wenjun.Zhu">
+  
+  
+  
+  <link rel="prev" href="https://zhu-wenjun.github.io/2018/go/" />
+  <link rel="next" href="https://zhu-wenjun.github.io/2019/pivxnode/" />
+  <link rel="canonical" href="https://zhu-wenjun.github.io/2019/smartnode/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Smartcash 货币主节点 | Uncertainty days
+       
+  </title>
+  <meta name="title" content="Smartcash 货币主节点 | Uncertainty days">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://zhu-wenjun.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Smartcash 货币主节点",
+    "headline" : "Smartcash 货币主节点",
+    "description" : "smartcash的masternode官方称作smartnode 建立smartnode节点要求：10000个smartcash，每个smartnode需要1GB的内存空间，一个公网的IPV4地址和此地址上的9678端口。 masternode.sh可用于建立smartnode节点，并为每个节点创建名为smartnode开头的目录文件，比如smartnode1、smartnode2等。masternode.sh脚本须运行在 Ubuntu 18.04系统上, 在VPS上建立多个smartnode时，需要提前在/etc/netplan/10-ens3.yaml中设置好对应数量的IPV4地址（可参考Vultr VPS服务器给出的设置）。  一、 smartnode节点设置
+将masternode.sh拷贝到VPS中，并执行脚本第一步：选择要安装smartnode则填入1。第二步：选择要安装smartnode的节点数量。如下图中(Max :2)代表根据内存大小，最多能在此VPS上部署2个smartnode节点，同时VPS上已经有2个公网的IPV4地址，所以选择2。`
+masternode.sh在安装过程中会先建立一个名为bootstrap的smartnode节点，当bootstrap的节点同步到最新的block区块后，masternode.sh将会根据用户选择的smartnode节点数量将bootstrap拷贝成新的smartnode1、smartnode2 &hellip;节点目录，并在每个节点目录下生成smartcash.conf文件。出现以下log时，代表smartnode1和smartnode2已安装完毕，可以用ps查看下smartnode1和2对应的smartcashd是否正在运行 查看smartnode1 和 smartnode2目录下的smartcash.conf文件，这个文件中的externalip，port和smartnodeprivkey分别用于稍后在smartcash客户端钱包中建立smartnode, smartnodeprivkey就是smartcash钱包中的genkey。 使用如下命令可以查看smartnode节点的block数量是否已经同步到最新
+smartcash-cli -datadir=/root/smartnode/smartnode1 getinfo smartcash-cli -datadir=/root/smartnode/smartnode2 getinfo root@smartnode:~# smartcash-cli -datadir=/root/smartnode/smartnode1 getinfo { &#34;version&#34;: 1020600, &#34;protocolversion&#34;: 90026, &#34;walletversion&#34;: 130000, &#34;balance&#34;: 0.00000000, &#34;blocks&#34;: 339222, &#34;timeoffset&#34;: 0, &#34;connections&#34;: 8, &#34;proxy&#34;: &#34;&#34;, &#34;difficulty&#34;: 212421.3970612101, &#34;testnet&#34;: false, &#34;keypoololdest&#34;: 1547686271, &#34;keypoolsize&#34;: 199, &#34;paytxfee&#34;: 0.00000000, &#34;relayfee&#34;: 0.00100000, &#34;errors&#34;: &#34;&#34; } root@smartnode:~# smartcash-cli -datadir=/root/smartnode/smartnode2 getinfo { &#34;version&#34;: 1020600, &#34;protocolversion&#34;: 90026, &#34;walletversion&#34;: 130000, &#34;balance&#34;: 0.",
+    "inLanguage" : "en-us",
+    "author" : "Wenjun.Zhu",
+    "creator" : "Wenjun.Zhu",
+    "publisher": "Wenjun.Zhu",
+    "accountablePerson" : "Wenjun.Zhu",
+    "copyrightHolder" : "Wenjun.Zhu",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-01-16 20:24:49 &#43;0800 &#43;0800",
+    "dateModified" : "2019-01-16 20:24:49 &#43;0800 &#43;0800",
+    "url" : "https://zhu-wenjun.github.io/2019/smartnode/",
+    "wordCount" : "155",
+    "keywords" : [  "Uncertainty days"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://zhu-wenjun.github.io">Uncertainty days</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://zhu-wenjun.github.io">Uncertainty days</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Smartcash 货币主节点</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://zhu-wenjun.github.io" rel="author">Wenjun.Zhu</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-01-16 itemprop="datePublished">January 16, 2019</time>
+                </span>
+                in
+                
+
+                |
+                <a href="#gitalk-container" itemprop="discussionUrl">
+                    <span class="post-comments-count gitalk-comment-count" itemprop="commentCount"></span>
+                </a>
+                
+        </div>
+    </header>
+
+        
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+
+
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <ol>
+<li>smartcash的masternode官方称作smartnode<!-- raw HTML omitted --></li>
+<li>建立smartnode节点要求：10000个smartcash，每个smartnode需要1GB的内存空间，一个公网的IPV4地址和此地址上的9678端口。<!-- raw HTML omitted --></li>
+<li>masternode.sh可用于建立smartnode节点，并为每个节点创建名为smartnode开头的目录文件，比如smartnode1、smartnode2等。<!-- raw HTML omitted -->
+masternode.sh脚本须运行在 Ubuntu 18.04系统上, 在VPS上建立多个smartnode时，需要提前在/etc/netplan/10-ens3.yaml中设置好对应数量的IPV4地址（可参考Vultr VPS服务器给出的设置）。</li>
+</ol>
+<p><strong>一、 smartnode节点设置</strong></p>
+<p>将masternode.sh拷贝到VPS中，并执行脚本<!-- raw HTML omitted -->
+<code>第一步：选择要安装smartnode则填入1。</code><!-- raw HTML omitted -->
+<code>第二步：选择要安装smartnode的节点数量。</code><!-- raw HTML omitted -->
+如下图中(Max :2)代表根据内存大小，最多能在此VPS上部署2个smartnode节点，同时VPS上已经有2个公网的IPV4地址，所以选择2。`</p>
+<p>masternode.sh在安装过程中会先建立一个名为bootstrap的smartnode节点，当bootstrap的节点同步到最新的block区块后，masternode.sh将会根据用户选择的smartnode节点数量将bootstrap拷贝成新的smartnode1、smartnode2 &hellip;节点目录，并在每个节点目录下生成smartcash.conf文件。<!-- raw HTML omitted -->
+<img src="/smartnode/1.png" alt="" title="img"></p>
+<p>出现以下log时，代表smartnode1和smartnode2已安装完毕，可以用ps查看下smartnode1和2对应的smartcashd是否正在运行
+<img src="/smartnode/2.png" alt="" title="img"></p>
+<p>查看smartnode1 和 smartnode2目录下的smartcash.conf文件，这个文件中的<code>externalip，port和smartnodeprivkey</code>分别用于稍后在smartcash客户端钱包中建立smartnode, <code>smartnodeprivkey</code>就是smartcash钱包中的genkey。
+<img src="/smartnode/3.png" alt="" title="img"></p>
+<p>使用如下命令可以查看smartnode节点的block数量是否已经同步到<a href="https://smart.ccore.online">最新</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">smartcash-cli -datadir<span style="color:#f92672">=</span>/root/smartnode/smartnode1 getinfo
+smartcash-cli -datadir<span style="color:#f92672">=</span>/root/smartnode/smartnode2 getinfo
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">root@smartnode:~# smartcash-cli -datadir<span style="color:#f92672">=</span>/root/smartnode/smartnode1 getinfo
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;version&#34;</span>: 1020600,
+  <span style="color:#e6db74">&#34;protocolversion&#34;</span>: 90026,
+  <span style="color:#e6db74">&#34;walletversion&#34;</span>: 130000,
+  <span style="color:#e6db74">&#34;balance&#34;</span>: 0.00000000,
+  <span style="color:#e6db74">&#34;blocks&#34;</span>: 339222,
+  <span style="color:#e6db74">&#34;timeoffset&#34;</span>: 0,
+  <span style="color:#e6db74">&#34;connections&#34;</span>: 8,
+  <span style="color:#e6db74">&#34;proxy&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+  <span style="color:#e6db74">&#34;difficulty&#34;</span>: 212421.3970612101,
+  <span style="color:#e6db74">&#34;testnet&#34;</span>: false,
+  <span style="color:#e6db74">&#34;keypoololdest&#34;</span>: 1547686271,
+  <span style="color:#e6db74">&#34;keypoolsize&#34;</span>: 199,
+  <span style="color:#e6db74">&#34;paytxfee&#34;</span>: 0.00000000,
+  <span style="color:#e6db74">&#34;relayfee&#34;</span>: 0.00100000,
+  <span style="color:#e6db74">&#34;errors&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+<span style="color:#f92672">}</span>
+root@smartnode:~# smartcash-cli -datadir<span style="color:#f92672">=</span>/root/smartnode/smartnode2 getinfo
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;version&#34;</span>: 1020600,
+  <span style="color:#e6db74">&#34;protocolversion&#34;</span>: 90026,
+  <span style="color:#e6db74">&#34;walletversion&#34;</span>: 130000,
+  <span style="color:#e6db74">&#34;balance&#34;</span>: 0.00000000,
+  <span style="color:#e6db74">&#34;blocks&#34;</span>: 347781,
+  <span style="color:#e6db74">&#34;timeoffset&#34;</span>: 0,
+  <span style="color:#e6db74">&#34;connections&#34;</span>: 8,
+  <span style="color:#e6db74">&#34;proxy&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+  <span style="color:#e6db74">&#34;difficulty&#34;</span>: 194537.1604978901,
+  <span style="color:#e6db74">&#34;testnet&#34;</span>: false,
+  <span style="color:#e6db74">&#34;keypoololdest&#34;</span>: 1547686276,
+  <span style="color:#e6db74">&#34;keypoolsize&#34;</span>: 199,
+  <span style="color:#e6db74">&#34;paytxfee&#34;</span>: 0.00000000,
+  <span style="color:#e6db74">&#34;relayfee&#34;</span>: 0.00100000,
+  <span style="color:#e6db74">&#34;errors&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>使用如下命令可以查看smartnode与smartcash钱包的连接状态</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">smartcash-cli -datadir<span style="color:#f92672">=</span>/root/smartnode/smartnode1 smartnode status
+smartcash-cli -datadir<span style="color:#f92672">=</span>/root/smartnode/smartnode2 smartnode status
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">root@smartnode:~/smartnode# smartcash-cli -datadir<span style="color:#f92672">=</span>/root/smartnode/smartnode1 smartnode status
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;outpoint&#34;</span>: <span style="color:#e6db74">&#34;COutPoint(0000000000000000000000000000000000000000000000000000000000000000, 4294967295)&#34;</span>,
+  <span style="color:#e6db74">&#34;service&#34;</span>: <span style="color:#e6db74">&#34;[::]:0&#34;</span>,
+  <span style="color:#e6db74">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;Node just started, not yet activated&#34;</span>
+<span style="color:#f92672">}</span>
+root@smartnode:~/smartnode# smartcash-cli -datadir<span style="color:#f92672">=</span>/root/smartnode/smartnode2 smartnode status
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;outpoint&#34;</span>: <span style="color:#e6db74">&#34;COutPoint(0000000000000000000000000000000000000000000000000000000000000000, 4294967295)&#34;</span>,
+  <span style="color:#e6db74">&#34;service&#34;</span>: <span style="color:#e6db74">&#34;[::]:0&#34;</span>,
+  <span style="color:#e6db74">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;Node just started, not yet activated&#34;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><!-- raw HTML omitted -->
+<ol>
+<li>
+<p>下载<a href="https://smartcash.cc/wallets/#nodeclient"><strong>smartcash钱包</strong></a>，安装并等待钱包同步到最新的block。
+<img src="/smartnode/4.png" alt="" title="img"></p>
+</li>
+<li>
+<p>新建一个收款地址，并起一个标签名，比如SmartNode1，并复制SmartNode1的地址。
+<img src="/smartnode/5.png" alt="" title="img"></p>
+</li>
+<li>
+<p>向SmartNode1的收款地址上打入10000个smartcash币，这个10000个币中不包含交易费，要完完整整的10000个币。
+<img src="/smartnode/6.png" alt="" title="img"></p>
+</li>
+<li>
+<p>在smartcash钱包上选择SmartNodes-&gt;Create Smartnode创建smartnode，将“smartnode节点设置”中的<code>externalip，port和smartnodeprivkey</code>添到选项中。最后点击“Start alias”来启动smartnode节点。
+<img src="/smartnode/7.png" alt="" title="img"></p>
+</li>
+<li>
+<p>在~/Library/Application Support/Smartcash/smartnode.conf中查看smartcash钱包对应的smartnode配置<!-- raw HTML omitted -->
+<code>alias IP:port smartnodeprivkey collateral_output_txid collateral_output_index</code><!-- raw HTML omitted -->
+示例图片:<!-- raw HTML omitted -->
+<img src="/smartnode/10.png" alt="" title="img"></p>
+</li>
+</ol>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Wenjun.Zhu </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://zhu-wenjun.github.io/2019/smartnode/>https://zhu-wenjun.github.io/2019/smartnode/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://zhu-wenjun.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://zhu-wenjun.github.io/2018/go/" class="prev" rel="prev" title="Golang 信手拈来"><i class="iconfont icon-left"></i>&nbsp;Golang 信手拈来</a>
+         
+        
+        <a href="https://zhu-wenjun.github.io/2019/pivxnode/" class="next" rel="next" title="PIVX 货币主节点">PIVX 货币主节点&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+
+    </div>
+</article>
+          
+<div class="comments-container"></div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://zhu-wenjun.github.io">Wenjun.Zhu</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+
+     </div>
+  </body>
+</html>

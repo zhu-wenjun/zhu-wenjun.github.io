@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Uncertainty days</title>
+    <link>https://zhu-wenjun.github.io/posts/</link>
+    <description>Recent content in Posts on Uncertainty days</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 29 Sep 2019 16:16:36 +0800</lastBuildDate>
+    
+	<atom:link href="https://zhu-wenjun.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>蜉蝣</title>
+      <link>https://zhu-wenjun.github.io/2019/ephemera/</link>
+      <pubDate>Sun, 29 Sep 2019 16:16:36 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/ephemera/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>向Linux系统添加用户</title>
+      <link>https://zhu-wenjun.github.io/2019/linuxuser/</link>
+      <pubDate>Wed, 18 Sep 2019 14:40:30 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/linuxuser/</guid>
+      <description>如果需要向Linux文件系统中添加1个新的用户，需要修改的文件有3个：/etc/passwd、/etc/shadow和/etc/group。下面分别介绍这3个文件的含义。
+1. /etc/passwd /etc/passwd是一个文本文件，它包含了Linux系统所包含的用户信息，每个用户信息占一行，每行包含7段信息，每段信息之间用冒号:隔开，这7段信息分别为username:password:UID:GID:comment:homedir:shell
+   段号 段名 含义     1 username 用户名。名称中不能包含大写字母   2 passwd 用户密码。x表示密码存储在/etc/shadow文件中   3 UID 用户ID   4 GID 用户所在组的组ID。组ID存储在/etc/group文件中   5 comment 注释段（可选填），分为5个部分，每个部分用逗号,隔开，分别为：Full Name,Room Number,Work Phone,Home Phone,Other   6 homedir 用户登陆的home目录。root用户的home目录为/root, nufront用户的目录为/home/nufront   7 shell 用户登陆后使用的shell解释器    /etc/passwd对所有用户均具有读权限，对超级用户具有写权限。比如我们用ls -l就能列出当前目录下文件所属的用户名和组名，用ls -n 就能将用户名和组名转成UID和GID来显示，这个转换映射就是基于/etc/passwd里的配置。nufront@nufront ~$ ls -l total 4 -rwxrwxrwx 1 root root 841 Sep 18 2019 sta0off.</description>
+    </item>
+    
+    <item>
+      <title>中国神仙体系</title>
+      <link>https://zhu-wenjun.github.io/2019/fairysystem/</link>
+      <pubDate>Thu, 12 Sep 2019 14:22:10 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/fairysystem/</guid>
+      <description>中国神仙的体系有很多种，下面是其中的一种：
+graph TD A[创始元灵] A --&amp;gt; |玄青气| B1(鸿钧老祖) A --&amp;gt; B2(混鲲老祖) A --&amp;gt; |玄空气| B3(女娲) A --&amp;gt; |玄明气| B4(陆压) B1(鸿钧老祖) --&amp;gt; |大徒弟| B1C1(道德天尊/太上老君 人教) B1(鸿钧老祖) --&amp;gt; |二徒弟| B1C2(元始天尊 阐教) B1(鸿钧老祖) --&amp;gt; |三徒弟| B1C3(灵宝天尊/通天教主 截教) B1(鸿钧老祖) --&amp;gt; |书童| B1C4(玉皇大帝) B1C1(道德天尊/太上老君 人教) --&amp;gt; |大徒弟|B1C1D1(玄都大法师) B1C1(道德天尊/太上老君 人教) --&amp;gt; |二徒弟|B1C1D2(度厄真人) B1C1D2(度厄真人) --&amp;gt; B1C1D2E1(托塔李天王) B1C2(元始天尊 阐教) --&amp;gt; |十二金仙| B1C2D1(文殊菩萨) B1C2(元始天尊 阐教) --&amp;gt; |十二金仙| B1C2D2(普贤菩萨) B1C2(元始天尊 阐教) --&amp;gt; |十二金仙| B1C2D3(观音菩萨) B1C2(元始天尊 阐教) --&amp;gt; |十二金仙| B1C2D4(惧留孙佛) B1C2(元始天尊 阐教) --&amp;gt; |十二金仙| B1C2D5(玉鼎真人) B1C2(元始天尊 阐教) --&amp;gt; |十二金仙| B1C2D6(太乙真人) B1C2(元始天尊 阐教) --&amp;gt; |十二金仙| B1C2D7(黄龙真人) B1C2(元始天尊 阐教) --&amp;gt; |十二金仙| B1C2D8(灵宝大法师) B1C2(元始天尊 阐教) --&amp;gt; |十二金仙| B1C2D9(道行天尊) B1C2(元始天尊 阐教) --&amp;gt; |十二金仙| B1C2D10(清虚道德真君) B1C2(元始天尊 阐教) --&amp;gt; |十二金仙| B1C2D11(赤精子) B1C2(元始天尊 阐教) --&amp;gt; |十二金仙| B1C2D12(广成子) B1C2(元始天尊 阐教) --&amp;gt; |女儿| B1C2D13(王母娘娘) B1C3(灵宝天尊/通天教主 截教) --&amp;gt; |徒弟| B31(雷公) B1C3(灵宝天尊/通天教主 截教) --&amp;gt; |徒弟| B32(电母) B1C3(灵宝天尊/通天教主 截教) --&amp;gt; |徒弟| B33(二十四星宿) B1C2D1(文殊菩萨) --&amp;gt; |徒弟| B1C2D1E1(金吒) B1C2D2(普贤菩萨) --&amp;gt; |徒弟| B1C2D2E1(木吒) B1C2D6(太乙真人) --&amp;gt; |徒弟| B1C2D6E1(哪吒) B1C2D5(玉鼎真人) --&amp;gt; |徒弟| B1C2D5E1(二郎神) B1C2D4(惧留孙佛) --&amp;gt; |徒弟| B1C2D4E1(土行孙) B2(混鲲老祖) --&amp;gt; |徒弟| B2C1(如来佛祖) B2(混鲲老祖) --&amp;gt; |全能王徒弟| B2C2(菩提老祖) B2C2(菩提老祖) --&amp;gt; |徒弟| B2C2D1(孙悟空) </description>
+    </item>
+    
+    <item>
+      <title>英语</title>
+      <link>https://zhu-wenjun.github.io/2019/english/</link>
+      <pubDate>Wed, 11 Sep 2019 16:46:04 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/english/</guid>
+      <description>经典台词 《功夫熊猫》 You can&#39;t leave, real warrior never quits.你不能走，真正的勇士从不退出。
+One always meets its destiny on the road he takes to avoid.人往往在逃避的道路上遇到自己的命运。
+There are no accidents.没有巧合。
+If you only do what you can do, you will never be more than you are now.如果你只做你能做的事儿，你永远不能超越现在的自己。
+Yesterday is history, tomrrow is a mystery.昨日已成历史，明日不期而遇。
+Today is a gift, that why it&#39;s called the present.今天是礼物，所以我们称今天为礼物。</description>
+    </item>
+    
+    <item>
+      <title>三角函数</title>
+      <link>https://zhu-wenjun.github.io/2019/trigonometricfunction/</link>
+      <pubDate>Fri, 16 Aug 2019 17:13:42 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/trigonometricfunction/</guid>
+      <description>    ${0}^{0}$ ${30}^{0}$ ${45}^{0}$ ${60}^{0}$ ${90}^{0}$ ${15}^{0}$ ${75}^{0}$     Sin 0 $\frac{1}{2}$ $\frac{{\sqrt{2}}}{2}$ $\frac{{\sqrt{3}}}{2}$ 1 $\frac{{\sqrt{6}}-{\sqrt{2}}}{4}$ $\frac{{\sqrt{6}}+{\sqrt{2}}}{4}$   Cos 1 $\frac{{\sqrt{3}}}{2}$ $\frac{{\sqrt{2}}}{2}$ $\frac{1}{2}$ 0 $\frac{{\sqrt{6}}+{\sqrt{2}}}{4}$ $\frac{{\sqrt{6}}-{\sqrt{2}}}{4}$   Tan 0 $\frac{{\sqrt{3}}}{3}$ 1 $\sqrt{3}$ 不存在 不用记 不用记    \sum_{x=0}^n f(x) $\sqrt{x}$ $e^{\imath x} = \cos{x} + \imath\sin{x}$.
+     SE = \frac{\sigma}{\sqrt{n}} </description>
+    </item>
+    
+    <item>
+      <title>我祈求我和我的家人及认识的朋友们平安终老</title>
+      <link>https://zhu-wenjun.github.io/2019/life/</link>
+      <pubDate>Thu, 15 Aug 2019 06:44:45 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/life/</guid>
+      <description>刚才家里的爸爸打来电话，说从小跟我一起长大的好友在公司工作时中毒，失去了生命。他和我一样大，我们小学在一个班级，初中一起骑着自行车上下学，高中仍在同一个学校，大学也在同一个城市。初中冬日的早晨，上学的时候天还是黑的，路上的积雪在黑夜下发白，那时总会一不小心滑到路边的沟里去， 我还掉到过路边的坑里。那时我中午总是去他家找他上学，他家里的圆桌放在屋里，他坐在凳子上吃饭，挨着桌子的柜子上放着一个 黑白电视，里面播着“新神雕侠侣”，他端着碗里的米饭，能吃一集，因为电视剧演的时间太长，中午看不完， 我们总是赶着差几分钟迟到的时候放下碗筷，骑着自行车往学校赶。那时我们揣着几块钱，一起骑着自行车去赶集，集市的书摊上铺着仅有的几本过时的“流行”书籍，他买回家，我们一起看， 里面大多是日本的当红的男女明星，其中我第一次记住的是裸着上身湿发拍照的日本男名星和穿着泳衣拍照的深田恭子。那时我们一起在他的小屋里做着一些绕脑的题，那些题总是有各种各样的特征来让你去寻找答案。那时我们一起听录音机，买的有小虎队的磁带、巫启贤的磁带，那时候录音机外放的《特别的爱给特别的你》，在安静的小屋里侧耳倾听的时候真是美好。我们中午骑自行车上学的时候，把骑出家门口，他脚腿用力一蹬自行车，身子往外一歪，头发一甩，唱出一句《追梦》里的“追追追我追”，真的是恣意非凡。他是个特别“计较”的人，初中放学的时候，我们骑着自行车，我故意打一下他的胳膊，他一定要把这一下找回来，我骑着自行车飞奔，他能追几里地，有时候我 停下来让他打一下捞回来，他会轻轻的碰你一下，然后当什么都没发生，继续回家，也有时候我们会放下自行车，下来打一架，然后再骑上自行车继续回家， 之后像什么都没发生一样，现在想想我们的脑袋可能真是被驴踢了，尤其是他，外号就被大家叫做“驴”。那时我们一起聊着班上最好看的同学，我们聊着她会喜欢什么样的男生，会不会喜欢我们这样的男生，但那时大家在这方面都很怂，就知道扯，没人敢上，甚至很自恋。上初中的时候，他是物理老师口中的“物理大将”，后来到初三学化学，他的化学成绩依然出类拔萃，而我只有英语比他稍好。高二的时候，我不知怎么想的，复了一年高二的课，他早我一年毕了业，去了保定上大学，第二年我也去了保定。上学前我在家里买了手机，但是还没买手机卡， 想到了保定再办手机卡。他从家里和我一起上火车，火车发车的时候，我爸给他打电话问是否顺利发车，火车上信号不好，他扯破了嗓子在手机上 嚷：火车发车了，一切都很好。嚷了好多次，整个车厢的人都听到了他大嚷的声音，真是有一种“驴”的精神，我们也感谢他这种精神。上大学后，他是个十分悠闲的人，我们在不同的学校，他每天就在床铺上看小说，然后骑着自行车逛保定这个城市，有时还会叫我去和他碰个面，我们在一个小饭馆， 吃着饭，饭注定很便宜，但聊天的场景确是那么深刻。后来过了几年我得知他在怀柔租的房子，全家都在那边，父母也过去了，帮他看孩子，他在草房上班，每天来回都要跑很远。7月15日那天，我把爸妈送回了老家，当时看他发的朋友圈也在家，于是我在回北京的时候去他家待了10几分钟，好几年没见面，大家稍有变化，但变化不大， 走的时候他的妈妈还给我带了一些油桃，他的亲戚送给他们的，非常甜。当时他说他买了一个二手车，在县里的汽修厂里贴膜呢。上周的时候，他发朋友圈说怀柔下大雨，把他们小区的车都泡了，谁知道再听说他的消息是去世的消息，谁知道7月15日的见面是最后的一次见面。兄弟，你的家里还有年老的父母，和你爱的妻子和孩子，你真的去追风了吗？你真的要唯留孤鸿影吗？</description>
+    </item>
+    
+    <item>
+      <title>给宝宝配眼镜</title>
+      <link>https://zhu-wenjun.github.io/2019/glasses/</link>
+      <pubDate>Wed, 14 Aug 2019 17:43:48 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/glasses/</guid>
+      <description>6月28日在儿研所给宝宝做了一次视力检查，医生说要散瞳测视力，散瞳能让宝宝的眼部肌肉失去调节能力，从而能真正的测出眼部的视力问题。我们做的是慢散，用的药是阿托品的凝胶，阿托品需要滴3天，然后再去医院检查。慢散一次之后需要3周才能恢复宝宝的最初视力。宝宝第一天用阿托品的时候，因为对药品有反应，整个脸都是红的，别提当时多心疼了。散瞳期间，她连自己的辫绳都看不清，即使现在过了一个多月， 她仍然怕见阳光，真不知道是不是有什么后续反应。 今天又到了崇文门到同仁医院给宝宝配了眼镜，一共选了3款镜架，最终还是选中了这个黑色镜框圈的镜架。</description>
+    </item>
+    
+    <item>
+      <title>泰山之行</title>
+      <link>https://zhu-wenjun.github.io/2019/mounttai/</link>
+      <pubDate>Wed, 07 Aug 2019 00:34:03 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/mounttai/</guid>
+      <description>惟天在上 8月4号去了一次泰山，泰山上有2200余处古今名人的石刻，登顶玉皇顶的时候，见到了一个“惟天在上”的石碑，使我印象深刻。个人理解可以有2种意思：一、“惟有天在泰山之上”，即只有天在泰山的上方，说明泰山的高。二、“惟有天在万物之上”，即只有天才是真的上方，说明泰山如此之高，但与天相比，仍不足为道，说明泰山的谦虚旅行照片 泰山之行中，宝宝5岁半，从中天门全程走到了玉皇顶，为宝宝的毅力点赞，尤其觉得她有时霸气外露，有时又落落大方。 </description>
+    </item>
+    
+    <item>
+      <title>运河菜馆</title>
+      <link>https://zhu-wenjun.github.io/2019/yunherestaurant/</link>
+      <pubDate>Thu, 01 Aug 2019 17:50:02 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/yunherestaurant/</guid>
+      <description>来了4次大运河森林公园，每次的入口都不一样，感觉也不一样。今天从正门进，我和宝宝都在大树下的木椅上睡了一觉。说起午休的话，真的是没有什么比在阳光四射的树荫下睡的更舒服的了。我们出去的时候本来要去正门，也叫西一门，但不知不觉地却走到了西二门，发现这里有一个运河菜馆，里面的风格很适合休闲和读书。 </description>
+    </item>
+    
+    <item>
+      <title>在言几又</title>
+      <link>https://zhu-wenjun.github.io/2019/yanjiyou/</link>
+      <pubDate>Wed, 31 Jul 2019 12:02:05 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/yanjiyou/</guid>
+      <description>今天本来是在帕森医疗体检的日子，体检完在地图上搜“书店”，发现距帕森医疗700米的地方有一个三里屯南路的“言几又”书店，因距离不远，遂决定步行前往。同时在书店记录下最新发现的2首令人震撼的歌曲，《乌兰巴托的夜》和《怨苍天变了心》 言几又书店照  乌兰巴托的夜 在记忆中思念你曾经得美好
+乌兰巴托夜的静，静得让你发不出歌唱她的声音，静得让你抽泣
+你在世界的每个角落存在
+我们对世界做了什么
+我能为你做什么
+ 怨苍天变了心 如果说谭维维的《乌兰巴托的夜》能触动人的心灵，那么《怨苍天变了心》我们就静静的欣赏就好了。此曲只应天上有 ~ </description>
+    </item>
+    
+    <item>
+      <title>缥缈岁月</title>
+      <link>https://zhu-wenjun.github.io/2019/dayswithuncertainty/</link>
+      <pubDate>Thu, 25 Jul 2019 08:13:50 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/dayswithuncertainty/</guid>
+      <description>今天早上看到了一篇上海彩虹室内合唱团纪念他们的老朋友高至凡先生2019年7月19日去世的新闻，高至凡（1991-2019）是厦门六中合唱团的指挥。 彩虹室内合唱团用《如果明天就是下一生》纪念了他们这位去世的朋友。
+岁月在你我呼吸间流浪当终点抵达那些想望休息了吗身心在日出日落间耗转当无常宣判你的心回家了吗周遭一幕幕演出不存在的陌生寻寻觅觅哟断线珍珠怎么接失落的音符怎么唱如果明天就是下一生你将如何度过今天如果明天就是下一生你将如何度过今天我用温暖守护生命让浪花留了痕我用觉照守护健康让转轮点了光看完彩虹室内合唱团的演出的时候，让我想起了最近的一件事：那就是感叹生命的脆弱，因为几乎没有人感受过死亡到来时的感觉，但是我在梦里遇到了。7月8日那天我在梦里梦到了一个要夺走我生命的“人”。开始我梦到我和老婆在屋里， 听到有人敲房门，我便出屋去开门，房门是两扇的，每扇门的中间都有一大块透明玻璃，我刚出屋就看到房门外面一个又矮又胖的“人”，穿着古代的衣服， 衣服是黄绿相间的花纹，头大脸黑目阔向两边挑，瞬间我听到我的身体在嚎叫：不要～他一个字都没说，我也一个字都没问，但是我的生命在告诉我自己这就是要取走人性命的鬼，就好像生命很早就认识这个“人”，但一生只能见它一次， 见的时候便是生命的终点。我拼尽全力的往屋里赶，我并不是害怕，我当时的想的是我要通知我的家人，我要走了，我要告诉我的老婆、我的孩子、我的爸爸妈妈，我要让他们有所准备， 我还想要告诉他们我并不痛苦，也不希望他们因此而痛苦。我没有恐惧，只是不想让他们伤心流泪。我拼尽全力挣扎，感觉头使劲仰了几下便把自己摇醒了，睁开眼时，我发现孩子睡在我的身边，真平和，我握住了她的小手， 并起床给老婆热了早饭，出门时有意的提醒她坐车时要系安全带。我相信梦里的感觉是人真实反应的体现，但现实中有些威胁生命的事情，让你连挣扎的机会都没有。人的生命就像钟表里的电池，你并不知道它什么时候会耗尽，钟表什么时候会停转。如果每个人的生命都有一个明确的终点时间，我想他和身边人的痛苦和遗憾会小很多。 即使我们的生命没有这个明确的终点时间，但我们每个人都知道终点时间是肯定有的，即使它不明确，那我们就当它是明天吧。</description>
+    </item>
+    
+    <item>
+      <title>行程满满的一天</title>
+      <link>https://zhu-wenjun.github.io/2019/songzhuangartcenter/</link>
+      <pubDate>Sun, 14 Jul 2019 22:37:41 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/songzhuangartcenter/</guid>
+      <description>10:00 ~ 12:00 宋庄美术馆 在宋庄美术馆，除了拍照，我还能干点啥。 13:00 ~ 15:00 舞蹈考级 中国舞蹈家协会的二级考试结束 16:00 ~ 18:00 话剧排练 Jungle story 宝宝浩奇心工作室排练 20:00 ~ 22:00 戏剧排练 在幼儿园和其他家长进行《阿文的小毯子》戏剧排练</description>
+    </item>
+    
+    <item>
+      <title>阿文的小毯子</title>
+      <link>https://zhu-wenjun.github.io/2019/owen/</link>
+      <pubDate>Sun, 14 Jul 2019 00:07:11 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/owen/</guid>
+      <description>介绍 最近幼儿园在请家长排练一部亲子戏剧，剧本叫做《阿文的小毯子》，关于绘本故事，读后感想和排练过程中所发生的事情，我很高兴能在这里记录一下。 绘本内容 读后感想 读完阿文的小毯子后，我的第一反应是不理解最后一页“隔壁的阿姨也不再多话了”， 同时不理解为什么隔壁阿姨也有一块红色的小手绢儿，并且在和阿文愉快的招手。下面是我看了这个故事4-5遍所写出的感想，当然每多读一遍都会多领略一些新的含义，写的时候感觉对原文的描述略深刻，因为其他家长的读后感好像和我的都不太一样😂。对于孩子来说，这是一个十分悲哀的故事。最后一页阿文和隔壁阿姨都在拿着手绢儿欢乐的招手，对于阿文来说，此时他已经失去了以前的童真，进入了大人的世界，他拿着黄色手绢“欢乐”的和隔壁阿姨打着招呼，隔壁阿姨也很欢乐的拿着红色手绢“接纳”了这个进入大人世界的阿文。为什么说阿文此时已经进入了大人的世界，因为绘本中第5页隔壁阿姨说的第一句话就是“阿文长大了，&amp;hellip; &amp;hellip;”，最后阿文和隔壁阿姨都能欢乐的笑着说明阿文已经变成了隔壁阿姨想要看到的“大人”。绘本除了最后一页，自始至终都没有展现过隔壁阿姨那个红色的小手绢儿，现在看来，红色的小手绢儿i应该就是隔壁阿姨童年时“红色的小毯子”剪成的。阿文拥有了自己黄色小手绢儿，就拥有了进入大人世界的门票。阿文喜欢上了黄色的小手绢，是爸爸妈妈对他“教育”的结果，这里讲什么是“教育”，就是爸爸妈妈一步一步对阿文施加的手段： 哄骗（把小毯子放在枕头下，明天早上，小毯子就不见了，毛毯小精灵会留给你一个非常棒的礼物） 嫌弃（小毯子好脏，又破又旧，丢掉算了） 破坏（爸爸把小毯子的一角泡在醋里） 反对（阿文要带小毯子上学，妈妈说不行，爸爸说的更大声） 套路（妈妈把小毯子剪成一块儿一块儿的小手绢）最后很多人不理解为什么我用“套路”这个词来形容爸爸妈妈对阿文施加的手段，爸爸妈妈把阿文的小毯子剪成小手绢的办法应该是隔壁阿姨提前给阿文的爸爸妈妈传授好的，从隔壁阿姨的角度来看，既然她曾经都可以接受“红色的小毯子”变成“红色的小手绢”，那么她把这招教给了阿文的爸爸妈妈，那么在阿文的身上应该也能奏效，这也说明了为什么最后一页阿文和隔壁阿姨同时都拥有一个小手绢。说阿文的爸爸妈妈是“套路”，可以从他们的对话中看出来：    妈妈说：“乖，不要哭。”爸爸说：“我们再想想看”（这里爸爸已经在暗示妈妈说出把小毯子剪成小手绢的办法）忽然，妈妈大叫：“哎呀！我想出办法了！”&amp;hellip; &amp;hellip;读到这里，这篇故事即是孩子的悲哀，也是父母的悲哀，因为阿文的父母既没有形成对自我的认识，也没有形成对阿文的真正认识，反而一直在聆听隔壁阿姨的教导。隔壁阿姨就代表着一种先前的规则，即使这规则曾经让前人们痛苦，但她仍然将这种规则施加给后人，所以文章中的所有人物都陷在了一种循环的悲哀之中。绘本中还有很多可以描述的点，比如说： 小毯子根本不是玩具，绘本中画了那么多玩具，但阿文一直玩的仍只有小毯子，我们理解的“玩具”和孩子想要的“玩具”可能根本不一样。 爸爸妈妈从刚开始高兴的给阿文洗小毯子上的巧克力和果酱，到后来用醋来破坏阿文的小毯子，可见爸爸妈妈的态度转变之大。 爸爸妈妈在反对阿文将小毯子拿到学校的时候，作者在背景墙上画了一幅爱德华.蒙克的的作品《呐喊》，如果这幅作品代表了作者的想法，那么作者已经对这种家庭表现出了惊恐和绝望。 阿文的妈妈将小毯子剪成小手绢的时候，妈妈说：擦擦眼泪。这代表了阿文和小毯子和以前的告别，并且阿文用“万岁、万岁、万万岁！”来迎接新时代的到来，这是对的，因为阿文整篇文章都没有反抗，他将成为隔壁阿姨的继任者。  排练场景 演出场景 </description>
+    </item>
+    
+    <item>
+      <title>Shall we talk?</title>
+      <link>https://zhu-wenjun.github.io/2019/eason-shallwetalk/</link>
+      <pubDate>Wed, 08 May 2019 18:07:55 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/eason-shallwetalk/</guid>
+      <description>人有时候越长大就会摒弃以前小时候做的一些事情，比如写卡片这件事。今天收的这两张Eason的CD (SHALL WE DANCE? SHALL WE TALK! 和 THE KEY)， 卖家当时说送我一盒Eason的卡片，我当时也没觉得有什么，只是简单的说了声谢谢， 但是收到后第一眼看到他手写的卡片，真的是挺激动的，而且是没有料到的惊喜。</description>
+    </item>
+    
+    <item>
+      <title>PIVX 货币主节点</title>
+      <link>https://zhu-wenjun.github.io/2019/pivxnode/</link>
+      <pubDate>Thu, 17 Jan 2019 12:45:33 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/pivxnode/</guid>
+      <description>pivx的masternode官方称作masternode 建立pivx masternode节点要求：10000个PIV，每个masternode需要1GB的内存空间，一个公网的IPV4地址和此地址上的9678端口。 masternode.sh可用于建立pivx masternode节点，并为每个节点创建名为pivxnode开头的目录文件，比如pivxnode1、pivxnode2等。masternode.sh脚本须运行在 Ubuntu 18.04系统上, 在VPS上建立多个masternode时，需要提前在/etc/netplan/10-ens3.yaml中设置好对应数量的IPV4地址（可参考Vultr VPS服务器给出的设置）。  一、 masternode节点设置
+将masternode.sh拷贝到VPS中，并执行脚本第一步：选择要安装pivxnode则填入2。第二步：选择要安装pivxnode的节点数量。如下图中(Max :4)代表根据内存大小，最多能在此VPS上部署4个pivxnode节点，但VPS上实际只有3个公网的IPV4地址，所以选择3。`
+masternode.sh在安装过程中会先建立一个名为bootstrap的pivx masternode节点，当bootstrap的节点同步到最新的block区块后，masternode.sh将会根据用户选择的masternode节点数量将bootstrap拷贝成新的pivxnode1、pivxnode2 pivxnode3&amp;hellip;节点目录，并在每个节点目录下生成pivx.conf文件。出现以下log时，代表pivxnode1、pivxnode2和pivxnode3已安装完毕，但pivx的block同步仍在进行
+查看pivxnode1、pivxnode2 和 pivxnode3目录下的pivx.conf文件，这个文件中的externalip和masternodeprivkey分别用于稍后在pivx客户端钱包中建立masternode主节点, masternodeprivkey就是pivx钱包中的pubkey。 使用如下命令可以查看pivx masternode节点的block数量是否已经同步到最新
+pivx-cli -datadir=/root/pivxnode/pivxnode1 getinfo pivx-cli -datadir=/root/pivxnode/pivxnode2 getinfo pivx-cli -datadir=/root/pivxnode/pivxnode3 getinfo root@pivxnode:~# pivx-cli -datadir=/root/pivxnode/pivxnode1 getinfo { &amp;#34;version&amp;#34;: 3010100, &amp;#34;protocolversion&amp;#34;: 70914, &amp;#34;walletversion&amp;#34;: 61000, &amp;#34;balance&amp;#34;: 0.00000000, &amp;#34;zerocoinbalance&amp;#34;: 0.00000000, &amp;#34;blocks&amp;#34;: 958277, &amp;#34;timeoffset&amp;#34;: 0, &amp;#34;connections&amp;#34;: 16, &amp;#34;proxy&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;difficulty&amp;#34;: 144382.7304786609, &amp;#34;testnet&amp;#34;: false, &amp;#34;moneysupply&amp;#34;: 55192482.64003127, &amp;#34;zPIVsupply&amp;#34;: { &amp;#34;1&amp;#34;: 7740.00000000, &amp;#34;5&amp;#34;: 11410.00000000, &amp;#34;10&amp;#34;: 49170.00000000, &amp;#34;50&amp;#34;: 62350.</description>
+    </item>
+    
+    <item>
+      <title>Smartcash 货币主节点</title>
+      <link>https://zhu-wenjun.github.io/2019/smartnode/</link>
+      <pubDate>Wed, 16 Jan 2019 20:24:49 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2019/smartnode/</guid>
+      <description>smartcash的masternode官方称作smartnode 建立smartnode节点要求：10000个smartcash，每个smartnode需要1GB的内存空间，一个公网的IPV4地址和此地址上的9678端口。 masternode.sh可用于建立smartnode节点，并为每个节点创建名为smartnode开头的目录文件，比如smartnode1、smartnode2等。masternode.sh脚本须运行在 Ubuntu 18.04系统上, 在VPS上建立多个smartnode时，需要提前在/etc/netplan/10-ens3.yaml中设置好对应数量的IPV4地址（可参考Vultr VPS服务器给出的设置）。  一、 smartnode节点设置
+将masternode.sh拷贝到VPS中，并执行脚本第一步：选择要安装smartnode则填入1。第二步：选择要安装smartnode的节点数量。如下图中(Max :2)代表根据内存大小，最多能在此VPS上部署2个smartnode节点，同时VPS上已经有2个公网的IPV4地址，所以选择2。`
+masternode.sh在安装过程中会先建立一个名为bootstrap的smartnode节点，当bootstrap的节点同步到最新的block区块后，masternode.sh将会根据用户选择的smartnode节点数量将bootstrap拷贝成新的smartnode1、smartnode2 &amp;hellip;节点目录，并在每个节点目录下生成smartcash.conf文件。出现以下log时，代表smartnode1和smartnode2已安装完毕，可以用ps查看下smartnode1和2对应的smartcashd是否正在运行 查看smartnode1 和 smartnode2目录下的smartcash.conf文件，这个文件中的externalip，port和smartnodeprivkey分别用于稍后在smartcash客户端钱包中建立smartnode, smartnodeprivkey就是smartcash钱包中的genkey。 使用如下命令可以查看smartnode节点的block数量是否已经同步到最新
+smartcash-cli -datadir=/root/smartnode/smartnode1 getinfo smartcash-cli -datadir=/root/smartnode/smartnode2 getinfo root@smartnode:~# smartcash-cli -datadir=/root/smartnode/smartnode1 getinfo { &amp;#34;version&amp;#34;: 1020600, &amp;#34;protocolversion&amp;#34;: 90026, &amp;#34;walletversion&amp;#34;: 130000, &amp;#34;balance&amp;#34;: 0.00000000, &amp;#34;blocks&amp;#34;: 339222, &amp;#34;timeoffset&amp;#34;: 0, &amp;#34;connections&amp;#34;: 8, &amp;#34;proxy&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;difficulty&amp;#34;: 212421.3970612101, &amp;#34;testnet&amp;#34;: false, &amp;#34;keypoololdest&amp;#34;: 1547686271, &amp;#34;keypoolsize&amp;#34;: 199, &amp;#34;paytxfee&amp;#34;: 0.00000000, &amp;#34;relayfee&amp;#34;: 0.00100000, &amp;#34;errors&amp;#34;: &amp;#34;&amp;#34; } root@smartnode:~# smartcash-cli -datadir=/root/smartnode/smartnode2 getinfo { &amp;#34;version&amp;#34;: 1020600, &amp;#34;protocolversion&amp;#34;: 90026, &amp;#34;walletversion&amp;#34;: 130000, &amp;#34;balance&amp;#34;: 0.</description>
+    </item>
+    
+    <item>
+      <title>Golang 信手拈来</title>
+      <link>https://zhu-wenjun.github.io/2018/go/</link>
+      <pubDate>Wed, 28 Nov 2018 22:57:01 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2018/go/</guid>
+      <description>Golang 信手拈来这个坑是在2018年挖的，但所有的内容都是在2019年填的👻👻👻
+Golang基本特性  Golang是静态语言，需要先编译再执行，静态语言的好处是具有类型安全特性 并发(goroutine)是go语言最重要的特性之一, goroutine类似于线程，但是比线程使用的内存更少 通道（channel）是一种内置的数据结构，用于在不同的goroutine之间同步发送具有类型的消息. TODO: 测试通道传输的副本和指针功能Page5. Golang提供类无继承的类型系统，这个类型系统支持面向对象开发。 Golang的组合（composition）设计模式，只需简单地将一个类型嵌入到另一个类型，比如把类型1嵌入到类型2中，那么类型2就可以复用类型1的所有功能。 一个类型由其他更微小的类型组合而成，避免了传统的基于继承的模型。 Golang的接口(interface)实现机制，允许用户对行为进行建模，而不是对类型进行建模.不需要声明某个类型实现了某个接口，编译器会判断一个类型的实例是否符合正在使用的接口. Golang可以在 https://play.golang.org 浏览器中进行调试, 并可以把你的代码Share给其他人. 所有处于同一个文件夹的代码文件，必须使用同一个包名，通常包和文件夹同名 在Golang中，如果main函数返回，整个程序也就终止了。Go程序终止时，还会关闭所有之前启动且还在运行的goroutine。写并发程序时，最佳的做法是，在main函数返回前，清理并终止所有之前启动的goroutine，或者(问题一), 如何在main（）函数结束之前检查此进程所派生了哪些goroutine，然后再尝试终止它们  1. 类型系统 1.1 基础数据类型 基础数据类型分为：整型，浮点数，复数，布尔型，字符串和常量
+12个整型数据类型如下所示，int和uint的位数依赖于CPU的位数(32位或64位) //adm
+   int8 int16 int32(rune) int64 uint8(byte) uint16 uint32 uint64 int uint    uint8 the set of all unsigned 8-bit integers (0 to 255) uint16 the set of all unsigned 16-bit integers (0 to 65535) uint32 the set of all unsigned 32-bit integers (0 to 4294967295) uint64 the set of all unsigned 64-bit integers (0 to 18446744073709551615) int8 the set of all signed 8-bit integers (-128 to 127) int16 the set of all signed 16-bit integers (-32768 to 32767) int32 the set of all signed 32-bit integers (-2147483648 to 2147483647) int64 the set of all signed 64-bit integers (-9223372036854775808 to 9223372036854775807) float32 the set of all IEEE-754 32-bit floating-point numbers float64 the set of all IEEE-754 64-bit floating-point numbers complex64 the set of all complex numbers with float32 real and imaginary parts complex128 the set of all complex numbers with float64 real and imaginary parts byte alias for uint8 rune alias for int32 TODO: add a routine to calc the max and min value in each type.</description>
+    </item>
+    
+    <item>
+      <title>Docker笔记</title>
+      <link>https://zhu-wenjun.github.io/2018/docker/</link>
+      <pubDate>Mon, 26 Nov 2018 17:05:22 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2018/docker/</guid>
+      <description>容器的原理 容器本质上是宿主机上的进程。容器的核心技术是Cgroups和namespace, 容器技术通过namespace实现资源隔离，通过Cgroups实现资源控制, 通过rootfs实现文件系统隔离LXC是Cgroups的管理工具，Cgroups是namespace的用户空间管理接口。namespace是Linux内核在task_struct中对进程组管理的基础机制。Cgroups Cgroups是Linux内核提供的一种可以限制、记录、隔离进程组所使用的物理资源（如CPU，内存，I/O等）的机制。
+namespace chroot是一个实现资源隔离的命令，它可以实现文件系统隔离，这是最早的容器技术。 一个容器要做到6项基本隔离，也就是Linux内核中提供的6种namespace隔离   namespace 隔离内容     IPC 信号量、消息队列和共享内存   Network 网络资源   Mount 文件系统挂载点   PID 进程🆔   UTS 主机名和域名   User 用户🆔和组🆔    namespace 主要是通过以下3个函数来完成的clone() &amp;ndash; 创建新的namespace setns() &amp;ndash; 将进程关联到一个已经存在的namespace unshare() &amp;ndash; 在已有进程上进行namespace隔离
+Docker 命令简介 docker attach docker attach --help Usage:	docker attach [OPTIONS] CONTAINER Attach local standard input, output, and error streams to a running container Options: --detach-keys string Override the key sequence for detaching a container --no-stdin Do not attach STDIN --sig-proxy Proxy all received signals to the process (default true)  ~     docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES ccc2ae1bdca4 ubuntu &amp;#34;/bin/bash&amp;#34; 3 minutes ago Up 3 minutes modest_babbage  ~     docker attach ccc2ae1bdca4 root@ccc2ae1bdca4:/# cat /proc/version Linux version 4.</description>
+    </item>
+    
+    <item>
+      <title>Scala笔记</title>
+      <link>https://zhu-wenjun.github.io/2018/scala/</link>
+      <pubDate>Sun, 18 Nov 2018 22:45:00 +0800</pubDate>
+      
+      <guid>https://zhu-wenjun.github.io/2018/scala/</guid>
+      <description>Scala是SCAlable Language（可扩展语言）的缩写，由Martin Odersky教授和他的EPFL团队于2003年创建。 Scala用来为Java虚拟机(JVM)平台上的函数式编程和面向对象编程提供一个高性能的开发环境。
+1. Scala环境搭建 1.1. 安装JDK 安装JAVA SE标准环境并检查版本
+   java -version java version &amp;#34;1.8.0_191&amp;#34; Java(TM) SE Runtime Environment (build 1.8.0_191-b12) Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode)  1.2. 安装Scala OSX 安装Scala
+   brew install scala ==&amp;gt; Downloading https://downloads.lightbend.com/scala/2.12.7/scala-2.12.7.tgz ######################################################################## 100.0% ==&amp;gt; Caveats To use with IntelliJ, set the Scala home to: /usr/local/opt/scala/idea ==&amp;gt; Summary 🍺 /usr/local/Cellar/scala/2.12.7: 42 files, 20.8MB, built in 20 minutes 36 seconds 安装完后在终端输入scala命令，看到如下Welcome to Scala&amp;hellip;和scala&amp;gt;提示说明你已经在Scala REPL（READ-Eval-Print-Loop）交互解释器环境</description>
+    </item>
+    
+  </channel>
+</rss>

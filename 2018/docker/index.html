@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Wenjun.Zhu">
+  
+  
+  
+  <link rel="prev" href="https://zhu-wenjun.github.io/2018/scala/" />
+  <link rel="next" href="https://zhu-wenjun.github.io/2018/go/" />
+  <link rel="canonical" href="https://zhu-wenjun.github.io/2018/docker/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Docker笔记 | Uncertainty days
+       
+  </title>
+  <meta name="title" content="Docker笔记 | Uncertainty days">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://zhu-wenjun.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Docker笔记",
+    "headline" : "Docker笔记",
+    "description" : "容器的原理 容器本质上是宿主机上的进程。容器的核心技术是Cgroups和namespace, 容器技术通过namespace实现资源隔离，通过Cgroups实现资源控制, 通过rootfs实现文件系统隔离LXC是Cgroups的管理工具，Cgroups是namespace的用户空间管理接口。namespace是Linux内核在task_struct中对进程组管理的基础机制。Cgroups Cgroups是Linux内核提供的一种可以限制、记录、隔离进程组所使用的物理资源（如CPU，内存，I/O等）的机制。
+namespace chroot是一个实现资源隔离的命令，它可以实现文件系统隔离，这是最早的容器技术。 一个容器要做到6项基本隔离，也就是Linux内核中提供的6种namespace隔离   namespace 隔离内容     IPC 信号量、消息队列和共享内存   Network 网络资源   Mount 文件系统挂载点   PID 进程🆔   UTS 主机名和域名   User 用户🆔和组🆔    namespace 主要是通过以下3个函数来完成的clone() &ndash; 创建新的namespace setns() &ndash; 将进程关联到一个已经存在的namespace unshare() &ndash; 在已有进程上进行namespace隔离
+Docker 命令简介 docker attach docker attach --help Usage:	docker attach [OPTIONS] CONTAINER Attach local standard input, output, and error streams to a running container Options: --detach-keys string Override the key sequence for detaching a container --no-stdin Do not attach STDIN --sig-proxy Proxy all received signals to the process (default true)  ~     docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES ccc2ae1bdca4 ubuntu &#34;/bin/bash&#34; 3 minutes ago Up 3 minutes modest_babbage  ~     docker attach ccc2ae1bdca4 root@ccc2ae1bdca4:/# cat /proc/version Linux version 4.",
+    "inLanguage" : "en-us",
+    "author" : "Wenjun.Zhu",
+    "creator" : "Wenjun.Zhu",
+    "publisher": "Wenjun.Zhu",
+    "accountablePerson" : "Wenjun.Zhu",
+    "copyrightHolder" : "Wenjun.Zhu",
+    "copyrightYear" : "2018",
+    "datePublished": "2018-11-26 17:05:22 &#43;0800 &#43;0800",
+    "dateModified" : "2018-11-26 17:05:22 &#43;0800 &#43;0800",
+    "url" : "https://zhu-wenjun.github.io/2018/docker/",
+    "wordCount" : "543",
+    "keywords" : [  "Uncertainty days"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://zhu-wenjun.github.io">Uncertainty days</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://zhu-wenjun.github.io">Uncertainty days</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Docker笔记</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://zhu-wenjun.github.io" rel="author">Wenjun.Zhu</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2018-11-26 itemprop="datePublished">November 26, 2018</time>
+                </span>
+                in
+                
+
+                |
+                <a href="#gitalk-container" itemprop="discussionUrl">
+                    <span class="post-comments-count gitalk-comment-count" itemprop="commentCount"></span>
+                </a>
+                
+        </div>
+    </header>
+
+        
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">容器的原理</a>
+      <ul>
+        <li><a href="#cgroups">Cgroups</a></li>
+        <li><a href="#namespace">namespace</a></li>
+      </ul>
+    </li>
+    <li><a href="#docker-">Docker 命令简介</a>
+      <ul>
+        <li><a href="#docker-attach">docker attach</a></li>
+        <li><a href="#docker-build">docker build</a></li>
+        <li><a href="#docker-system-prune">Docker system prune清理容器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="heading">容器的原理</h2>
+<p>容器本质上是宿主机上的进程。容器的核心技术是Cgroups和namespace, 容器技术通过namespace实现资源隔离，通过Cgroups实现资源控制, 通过rootfs实现文件系统隔离<!-- raw HTML omitted -->
+LXC是Cgroups的管理工具，Cgroups是namespace的用户空间管理接口。namespace是Linux内核在task_struct中对进程组管理的基础机制。<!-- raw HTML omitted --></p>
+<h3 id="cgroups">Cgroups</h3>
+<p>Cgroups是Linux内核提供的一种可以限制、记录、隔离进程组所使用的物理资源（如CPU，内存，I/O等）的机制。</p>
+<h3 id="namespace">namespace</h3>
+<p>chroot是一个实现资源隔离的命令，它可以实现文件系统隔离，这是最早的容器技术。
+一个容器要做到6项基本隔离，也就是Linux内核中提供的6种namespace隔离<!-- raw HTML omitted --></p>
+<table>
+<thead>
+<tr>
+<th>namespace</th>
+<th>隔离内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IPC</td>
+<td>信号量、消息队列和共享内存</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>网络资源</td>
+</tr>
+<tr>
+<td>Mount</td>
+<td>文件系统挂载点</td>
+</tr>
+<tr>
+<td>PID</td>
+<td>进程🆔</td>
+</tr>
+<tr>
+<td>UTS</td>
+<td>主机名和域名</td>
+</tr>
+<tr>
+<td>User</td>
+<td>用户🆔和组🆔</td>
+</tr>
+</tbody>
+</table>
+<p>namespace 主要是通过以下3个函数来完成的<!-- raw HTML omitted -->
+clone() &ndash; 创建新的namespace
+setns() &ndash; 将进程关联到一个已经存在的namespace
+unshare() &ndash; 在已有进程上进行namespace隔离</p>
+<h2 id="docker-">Docker 命令简介</h2>
+<h3 id="docker-attach">docker attach</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker attach --help
+
+Usage:	docker attach <span style="color:#f92672">[</span>OPTIONS<span style="color:#f92672">]</span> CONTAINER
+
+Attach local standard input, output, and error streams to a running container
+
+Options:
+      --detach-keys string   Override the key sequence <span style="color:#66d9ef">for</span> detaching a container
+      --no-stdin             Do not attach STDIN
+      --sig-proxy            Proxy all received signals to the process <span style="color:#f92672">(</span>default true<span style="color:#f92672">)</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  ~ 
+   docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS                NAMES
+ccc2ae1bdca4        ubuntu              <span style="color:#e6db74">&#34;/bin/bash&#34;</span>              <span style="color:#ae81ff">3</span> minutes ago       Up <span style="color:#ae81ff">3</span> minutes                                     modest_babbage
+
+  ~ 
+   docker attach ccc2ae1bdca4
+root@ccc2ae1bdca4:/# cat /proc/version
+Linux version 4.9.125-linuxkit <span style="color:#f92672">(</span>root@659b6d51c354<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>gcc version 6.4.0 <span style="color:#f92672">(</span>Alpine 6.4.0<span style="color:#f92672">)</span> <span style="color:#f92672">)</span> <span style="color:#75715e">#1 SMP Fri Sep 7 08:20:28 UTC 2018</span>
+root@ccc2ae1bdca4:/# date
+Mon Nov <span style="color:#ae81ff">26</span> 14:49:32 UTC <span style="color:#ae81ff">2018</span>
+root@ccc2ae1bdca4:/# Ctrl + P; Ctrl + Q
+bash: Ctrl: command not found
+bash: Ctrl: command not found
+root@ccc2ae1bdca4:/# read escape sequence
+
+  ~ 
+</code></pre></div><h3 id="docker-build">docker build</h3>
+<ul>
+<li>-c: 控制CPU使用</li>
+<li>-f: 选择Dockerfile名称</li>
+<li>-m: 设置构建内存上限</li>
+<li>-q: 不显示构建过程的一些信息</li>
+<li>-t: 为构建的镜像打上标签</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">   docker build --help
+
+Usage:	docker build <span style="color:#f92672">[</span>OPTIONS<span style="color:#f92672">]</span> PATH | URL | -
+
+Build an image from a Dockerfile
+
+Options:
+      --add-host list           Add a custom host-to-IP mapping <span style="color:#f92672">(</span>host:ip<span style="color:#f92672">)</span>
+      --build-arg list          Set build-time variables
+      --cache-from strings      Images to consider as cache sources
+      --cgroup-parent string    Optional parent cgroup <span style="color:#66d9ef">for</span> the container
+      --compress                Compress the build context using gzip
+      --cpu-period int          Limit the CPU CFS <span style="color:#f92672">(</span>Completely Fair Scheduler<span style="color:#f92672">)</span> period
+      --cpu-quota int           Limit the CPU CFS <span style="color:#f92672">(</span>Completely Fair Scheduler<span style="color:#f92672">)</span> quota
+  -c, --cpu-shares int          CPU shares <span style="color:#f92672">(</span>relative weight<span style="color:#f92672">)</span>
+      --cpuset-cpus string      CPUs in which to allow execution <span style="color:#f92672">(</span>0-3, 0,1<span style="color:#f92672">)</span>
+      --cpuset-mems string      MEMs in which to allow execution <span style="color:#f92672">(</span>0-3, 0,1<span style="color:#f92672">)</span>
+      --disable-content-trust   Skip image verification <span style="color:#f92672">(</span>default true<span style="color:#f92672">)</span>
+  -f, --file string             Name of the Dockerfile <span style="color:#f92672">(</span>Default is <span style="color:#e6db74">&#39;PATH/Dockerfile&#39;</span><span style="color:#f92672">)</span>
+      --force-rm                Always remove intermediate containers
+      --iidfile string          Write the image ID to the file
+      --isolation string        Container isolation technology
+      --label list              Set metadata <span style="color:#66d9ef">for</span> an image
+  -m, --memory bytes            Memory limit
+      --memory-swap bytes       Swap limit equal to memory plus swap: <span style="color:#e6db74">&#39;-1&#39;</span> to enable unlimited swap
+      --network string          Set the networking mode <span style="color:#66d9ef">for</span> the RUN instructions during build <span style="color:#f92672">(</span>default <span style="color:#e6db74">&#34;default&#34;</span><span style="color:#f92672">)</span>
+      --no-cache                Do not use cache when building the image
+      --platform string         Set platform <span style="color:#66d9ef">if</span> server is multi-platform capable
+      --pull                    Always attempt to pull a newer version of the image
+  -q, --quiet                   Suppress the build output and print image ID on success
+      --rm                      Remove intermediate containers after a successful build <span style="color:#f92672">(</span>default true<span style="color:#f92672">)</span>
+      --security-opt strings    Security options
+      --shm-size bytes          Size of /dev/shm
+      --squash                  Squash newly built layers into a single new layer
+      --stream                  Stream attaches to server to negotiate build context
+  -t, --tag list                Name and optionally a tag in the <span style="color:#e6db74">&#39;name:tag&#39;</span> format
+      --target string           Set the target build stage to build.
+      --ulimit ulimit           Ulimit options <span style="color:#f92672">(</span>default <span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">)</span>
+
+  ~/work/Docker 
+  
+
+</code></pre></div><h3 id="docker-system-prune">Docker system prune清理容器</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker system prune
+WARNING! This will remove:
+        - all stopped containers
+        - all networks not used by at least one container
+        - all dangling images
+        - all dangling build cache
+Are you sure you want to <span style="color:#66d9ef">continue</span>? <span style="color:#f92672">[</span>y/N<span style="color:#f92672">]</span> y
+Deleted Containers:
+4dcf245cb8fef2feace594f2adc0c8fe78676d8ed765645c50633b25001e62a5
+46d1df1ca1a093022e742b435da9d529acfb906597d7d720acd83574ef1be872
+41400f28267358aabac261c36a5224fcea9bd532d0033fcbf663ad4c4ae64e3c
+c190ba0e6075a61a9a724533231ce43b4d8c548c81657658700d1d32e230ca2d
+940df5ec9ba4648c542108a8c0efc47667cbe81db32b3d5b2872dc27d03b82c5
+87b99fc55b3032fbba0066d3829aadbe4ad3e1fb52fa057389aad67d0a09a2e8
+ec98a5b1971f4696d9e366007648cdb2f0006ad8a0c9d85b4a3f5842f9cb45cd
+3003122bff768f434c996aa5e3ff19f7accf7d66f26a1bcd820b08bce3aff424
+a4887f39a890c8fa0b24a93b2eaf4c42d52816710822a85f16cba1c05c070809
+aed397abcd0d6b3e896df517837bd94f48620cce87e961d74daf8a7cf814c2b4
+837d62f8febe76b6f65072b65a0bc7049667e63509f59bb27ca82d90921dcc80
+9b7770990eaeab14a1a3109e27d07211fd6ce2718d445b0f8259c4d409f33580
+1da92d1678abf6fd72979a908e25a4a591ce339ad10b53b183375e2a01cf6cc9
+42ce1d798558ffc05281e6aa6c24c495ebc7b4c7ebc27b5b42ee2d6b90c0c06f
+6e62cd0e41cfd838d68d23f2f6d2bb9a60918ba10e2d7622ed6be4510d490302
+7fea23f4764c70913a22f69dc805b6c61bb7594cd1a406c9638e41abedb3974b
+19f2bb9d6ff2ce303d421b34bb46a2658bc063c3f220a9070b79282cd55fe291
+
+Total reclaimed space: 177B
+</code></pre></div><blockquote>
+<p>参考书籍： Docker 从入门到实战</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Wenjun.Zhu </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://zhu-wenjun.github.io/2018/docker/>https://zhu-wenjun.github.io/2018/docker/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://zhu-wenjun.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://zhu-wenjun.github.io/2018/scala/" class="prev" rel="prev" title="Scala笔记"><i class="iconfont icon-left"></i>&nbsp;Scala笔记</a>
+         
+        
+        <a href="https://zhu-wenjun.github.io/2018/go/" class="next" rel="next" title="Golang 信手拈来">Golang 信手拈来&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+
+    </div>
+</article>
+          
+<div class="comments-container"></div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://zhu-wenjun.github.io">Wenjun.Zhu</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+     </div>
+  </body>
+</html>
